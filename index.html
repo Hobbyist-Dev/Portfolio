@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="index.CSS">
+    <head><title>Home | Muadh</title><meta name="viewport" content="width=device-width, initial-scale=1"></head>
+    <body>
+
+        <div class="topnav" id="myTopnav">
+          <a href="#home" class="active">Home</a>
+          <a href="#news" style="float: right;">News</a>
+          <a href="#contact" style="float: right;">Contact</a>
+          <a href="#about" style="float: right;">About</a>
+          <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+            <i class="fa fa-bars"></i>
+          </a>
+        </div>
+
+        <script>
+            function myFunction() {
+                var x = document.getElementById("myTopnav");
+                if (x.className === "topnav") {
+                    x.className += " responsive";
+                } else {
+                    x.className = "topnav";
+                }
+            }
+        </script>
+
+        <h1 class="title">Muadh Aslam</h1>
+        <p class="start">Student | Developer | Passionist</p>
+        <img src="https://cdn.pixabay.com/photo/2020/10/21/18/07/laptop-5673901_1280.jpg" class="titleImg">
+        
+        <div class="socialbtns">
+            <button class="socials"><i class="fa fa-facebook"></i></button>
+            <button class="socials"><i class="fa fa-linkedin"></i></button>
+            <button class="socials"><i class="fa fa-instagram"></i></button>
+        </div>
+
+
+        <br><br><br><br><br><button id="FindOut">Hire Me</button><br><br><br><br><br>
+
+        <h2>About Me</h2><br>
+        <div class="grad"><i class="fa fa-graduation-cap"></i><p class="text">Christ Church, University of Oxford</p></div>
+        <div class="gradx"><i class="fa fa-briefcase"></i><p class="text">Front-end Developer, Google Company</p></div>
+        <div class="gradx"><i class="fa fa-briefcase"></i><p class="text">Intern for Microsoft Software Co.</p></div>
+        
+    
+    </body>
+</html>
