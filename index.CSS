@@ -4,18 +4,24 @@ body{
     background-color: rgb(1, 21, 70);
 }
 
-h1, h2{
+.title, .title2, .title3{
     padding: 20px;
     padding-top: 27%;
     padding-bottom: 0px;
-    font-size: 7.5vw;
+    font-size: 9vw;
     color: rgb(219, 227, 233);
     position: absolute;
     transition-duration: 0.35s;
 }
 
-h2{
+.title2{
   font-size: 6vw;
+}
+.title3{
+  font-size: 4vw;
+}
+.space{
+  height: 75vw;
 }
 
 .start{
@@ -87,6 +93,10 @@ img.titleImg{
     font-size: 12vw;
   }
 
+  .title3{
+    padding-top: 88%;
+  }
+
   .start{
     padding-top: 91%;
     font-size: 4vw;
@@ -100,6 +110,10 @@ img.titleImg{
 
   img.titleImg{
     width: 92%;
+  }
+
+  .space{
+    height: 100vw;
   }
 }
 
@@ -173,4 +187,34 @@ img.titleImg{
   position:relative;
   padding-left: 20px;
   padding-top: 3.5%;
+}
+
+.about{
+  padding: 20px;
+  padding-top: 7%;
+  padding-bottom: 0px;
+  font-size: 7.5vw;
+  color: rgb(219, 227, 233);
+  transition-duration: 0.35s;
+}
+.par{
+  color: #f2f2f2;
+  margin-left: 2.5%;
+  margin-right: 2.5%;
+  margin-top: 2%;
+  font-weight: 550;
+  font-size: 3vw;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center
+}
+.imgx {
+  width: 45%;
+  margin-top: 5%;
+  margin: 1%;
+  border-radius: 15px;
+  border: #f2f2f2 solid 5px;
 }
