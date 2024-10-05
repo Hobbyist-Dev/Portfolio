@@ -1,7 +1,27 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>Tic Tac Toe</title>
+<head><title>Tic Tac Toe | Moad</title><meta name="viewport" content="width=device-width, initial-scale=1"></head>
+<body>
+    <div class="topnav" id="myTopnav">
+        <a href="index.html" class="active">Home</a>
+        <a href="News.html" style="float: right;">News</a>
+        <a href="contact.html" style="float: right;">Contact</a>
+        <a href="About.html" style="float: right;">About</a>
+        <a href="Ai file.html" style="float: right;">Extras</a>
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+        <i class="fa fa-bars"></i>
+        </a>
+    </div>
+
+    <script>
+        function myFunction() {
+            var x = document.getElementById("myTopnav");
+            if (x.className === "topnav") {
+                x.className += " responsive";
+            } else {
+                x.className = "topnav";
+            }
+        }
+        </script>
   <style>
     body {
       display: flex;
