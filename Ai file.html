@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Tic Tac Toe</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-image: linear-gradient(to bottom right, rgb(8, 0, 255), rgb(255, 0, 255));
+    }
+
+    #board {
+      display: grid;
+      grid-template-columns: repeat(3, 150px);
+      grid-template-rows: repeat(3, 150px);
+      border: 2px solid #ccc;
+      border-radius: 5px;
+      background-color: #f0f0f0;
+      opacity: 75%;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .cell {
+      width: 150px;
+      height: 150px;
+      text-align: center;
+      font-size: 110px;
+      font-family: Arial, Helvetica, sans-serif;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .cell:hover {
+      background-color: #e0e0e0;
+    }
+
+    .X {
+      color: blue;
+    }
+
+    .O {
+      color: red;
+    }
+
+    #message-modal {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-image: linear-gradient(to bottom, rgb(255, 81, 0), rgb(255, 140, 0));
+      border: 5px solid black;
+      padding-left: 30%;
+      padding-right: 30%;
+      padding-top: 10%;
+      padding-bottom: 10%;
+      border-radius: 30px;
+      text-align: center;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: xx-large;
+      z-index: 1000;
+    }
+
+    #restart-button{
+        border: 2.5px solid black;
+        border-radius: 15px;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 3vw;
+        padding: 20px;
+        padding-left: 35px;
+        padding-right: 35px;
+    }
+  </style>
+</head>
+<body>
+  <div id="board"></div>
+  <div id="message-modal">
+    <p id="message"></p>
+    <button id="restart-button" onclick="deleteBoard(), resetBoard()">Restart</button>
+  </div>
+  <script>
+    const board = document.getElementById('board');
+    const messageModal = document.getElementById('message-modal');
+    const message = document.getElementById('message');
+    const restartButton = document.getElementById('restart-button');
+    let currentPlayer = 'X';
+
+    function createBoard() {
+      for (let i = 0; i < 9; i++) {
+        const cell = document.createElement('div');
+        cell.classList.add('cell');
+        cell.dataset.index = i;
+        cell.addEventListener('click', handleCellClick);
+        board.appendChild(cell);
+      }
+    }
+
+    function handleCellClick(event) {
+      const cell = event.target;
+      if (cell.textContent !== '') return;
+      cell.textContent = currentPlayer;
+      if (checkWin()) {
+        endGame(currentPlayer);
+      } else if (checkDraw()) {
+        endDraw();
+      } else {
+        currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
+      }
+    }
+
+    function checkWin() {
+      const winningCombinations = [
+        [0, 1, 2],
+        [3, 4, 5],
+        [6, 7, 8],
+        [0, 3, 6],
+        [1, 4, 7],
+        [2, 5, 8],
+        [0, 4, 8],
+        [2, 4, 6]
+      ];
+
+      for (const combination of winningCombinations) {
+        const [a, b, c] = combination;
+        if (board.children[a].textContent === currentPlayer &&
+            board.children[b].textContent === currentPlayer &&
+            board.children[c].textContent === currentPlayer) {
+          return true;
+        }
+      }
+
+      return false;
+    }
+
+    function checkDraw() {
+      return Array.from(board.children).every(cell => cell.textContent !== '');
+    }
+
+    function endGame(winner) {
+      message.textContent = `Player ${winner} wins!`;
+      messageModal.style.display = 'block';
+    }
+
+    function endDraw() {
+      message.textContent = "It's a draw!";
+      messageModal.style.display = 'block';
+    }
+
+    function resetBoard() {
+      currentPlayer = 'X';
+      Array.from(board.children).forEach(cell => cell.textContent = '');
+      messageModal.style.display = 'none';
+      createBoard();
+    }
+
+    function deleteBoard() {
+    board.innerHTML = '';
+    }
+
+    createBoard();
+  </script>
+</body>
+</html>
